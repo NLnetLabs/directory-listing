@@ -14,6 +14,7 @@ const input = {
   showHidden: getBooleanInput('show-hidden'),
   overwrite: getBooleanInput('overwrite'),
   footer: getInput('footer'),
+  project: getInput('project'),
 }
 
 ;(async () => {
@@ -88,7 +89,7 @@ const input = {
       const path = join(dir, 'index.html')
 
       if (input.overwrite || !existsSync(path)) {
-        writeFileSync(path, generate(dir, files, {footerContent: input.footer}), { flush: true })
+        writeFileSync(path, generate(dir, files, {footerContent: input.footer, projectName: input.project}), { flush: true })
         generated.push(path)
       } else {
         skipped.push(path)

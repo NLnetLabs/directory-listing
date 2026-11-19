@@ -1,14 +1,13 @@
-import styles from './styles.css?raw'
-
 /**
  * Generate index.html file content with the given options.
  *
  * @param {String} path
  * @param {Array<{path: String, isDirectory: Boolean, size: Number, modifiedAt: Date}>} list
- * @param {{footerContent?: String}} [opts]
+ * @param {{footerContent?: String, projectName: String}} [opts]
  * @returns {string}
  */
 export default function generate(path, list, opts) {
+  const projectName = (opts && opts.projectName) ? opts.projectName : "";
   const indexOf = '/' + path.replace(/\.+/, '')
 
   return `<!DOCTYPE html>
@@ -17,13 +16,15 @@ export default function generate(path, list, opts) {
   <meta charset="UTF-8"/>
   <meta name="robots" content="nofollow,noarchive,noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="generator" content="github.com/gacts/directory-listing"/>
-  <title>Index of ${indexOf}</title>
-  <style>${'\n' + styles}</style>
+  <title>${projectName} nightly builds</title>
+  <link href="https://nlnetlabs.nl/theme/css/custom.css" rel="stylesheet">
 </head>
 <body>
 <header>
-  <h1>Index of <span>${indexOf}</span></h1>
+  <h1>${projectName} nightly builds</h1>
+  <p>These are the nightly builds of ${projectName}. 
+  They are built from the <code>main</code> branch every time the <code>main</code> branch is updated.</p>
+  <p>These builds are provided as-is and are not supported; use at your own risk.</p>
 </header>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
   <defs>
@@ -42,6 +43,7 @@ export default function generate(path, list, opts) {
   </defs>
 </svg>
 <main>
+  <span>${indexOf}</span>
   <table>
     <thead>
       <tr>

@@ -31,6 +31,9 @@ inputs:
   footer:
     description: The footer content to be added to the index file
     default: 'Repository <a href="https://github.com/${{ github.repository }}">${{ github.repository }}</a>'
+  project:
+    description: The project name for this project
+    default: '${{ github.repository }}'
 
 outputs:
   generated:
