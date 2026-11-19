@@ -5,7 +5,141 @@
   <meta name="robots" content="nofollow,noarchive,noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Koenvh1/directory-listing nightly builds</title>
-  <link href="https://nlnetlabs.nl/theme/css/custom.css" rel="stylesheet">
+  <style>
+:root {
+  --color-text-primary: #000000;
+  --color-text-secondary: #787271;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f1ebe7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #f1ebe7;
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #787271;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: "Arial", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 1.25em;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  body,
+  html {
+    font-size: 20px;
+  }
+}
+
+a {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.85;
+    transition: opacity 0.2s linear;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: var(--color-text-secondary);
+  }
+}
+
+header,
+main {
+  padding: 0 2rem;
+}
+
+header {
+  margin-bottom: 1rem;
+
+  h1 {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.path {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75em;
+  background-color: var(--color-bg-secondary);
+}
+
+main {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--color-bg-secondary);
+    text-align: left;
+    white-space: nowrap;
+
+    svg.icon {
+      width: 1em;
+      height: 0.98em;
+      padding-right: 0.1em;
+      position: relative;
+      top: 0.2em;
+    }
+  }
+
+  th.name,
+  td.name {
+    text-align: left;
+  }
+
+  th.size,
+  td.size {
+    width: 10%;
+    text-align: center;
+  }
+
+  th.mod-date,
+  td.mod-date {
+    width: 20%;
+    text-align: center;
+  }
+
+  tbody > tr:last-child > td {
+    border-bottom: none;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+}
+</style>
 </head>
 <body>
 <header>
@@ -31,7 +165,7 @@
   </defs>
 </svg>
 <main>
-  <span>/</span>
+  <span class="path">/</span>
   <table>
     <thead>
       <tr>
@@ -51,7 +185,7 @@
             <a href="./src">src</a>
           </td>
           <td class="size" title="9114">8.9 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -61,8 +195,8 @@
             </svg>
             <a href="./dist">dist</a>
           </td>
-          <td class="size" title="501932">490.17 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="size" title="504007">492.19 KB</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -73,7 +207,7 @@
             <a href="./art">art</a>
           </td>
           <td class="size" title="49249">48.09 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -84,7 +218,7 @@
             <a href="./.github">.github</a>
           </td>
           <td class="size" title="3643">3.56 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -95,7 +229,7 @@
             <a href="./rollup.config.js">rollup.config.js</a>
           </td>
           <td class="size" title="801">801 B</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -106,7 +240,7 @@
             <a href="./prettier.config.js">prettier.config.js</a>
           </td>
           <td class="size" title="236">236 B</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -117,7 +251,7 @@
             <a href="./package.json">package.json</a>
           </td>
           <td class="size" title="1227">1.2 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -128,7 +262,7 @@
             <a href="./package-lock.json">package-lock.json</a>
           </td>
           <td class="size" title="137271">134.05 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -139,7 +273,7 @@
             <a href="./eslint.config.js">eslint.config.js</a>
           </td>
           <td class="size" title="1279">1.25 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -150,7 +284,7 @@
             <a href="./action.yml">action.yml</a>
           </td>
           <td class="size" title="1533">1.5 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -161,7 +295,7 @@
             <a href="./README.md">README.md</a>
           </td>
           <td class="size" title="5182">5.06 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -172,7 +306,7 @@
             <a href="./Makefile">Makefile</a>
           </td>
           <td class="size" title="915">915 B</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -183,7 +317,7 @@
             <a href="./LICENSE">LICENSE</a>
           </td>
           <td class="size" title="1081">1.06 KB</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -194,7 +328,7 @@
             <a href="./.gitignore">.gitignore</a>
           </td>
           <td class="size" title="112">112 B</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -205,7 +339,7 @@
             <a href="./.gitattributes">.gitattributes</a>
           </td>
           <td class="size" title="86">86 B</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
 
         <tr>
@@ -216,7 +350,7 @@
             <a href="./.editorconfig">.editorconfig</a>
           </td>
           <td class="size" title="342">342 B</td>
-          <td class="mod-date">11/19/2026, 1:15:23 PM</td>
+          <td class="mod-date">11/19/2026, 1:16:05 PM</td>
         </tr>
     </tbody>
   </table>
