@@ -1,16 +1,16 @@
 :root {
-  --color-text-primary: #444;
-  --color-text-secondary: #111;
-  --color-bg-primary: #ddd;
-  --color-bg-secondary: #bbb;
+  --color-text-primary: #000000;
+  --color-text-secondary: #787271;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f1ebe7;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text-primary: #bbb;
-    --color-text-secondary: #eee;
-    --color-bg-primary: #242424;
-    --color-bg-secondary: #444;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #f1ebe7;
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #787271;
   }
 }
 
@@ -20,7 +20,7 @@ body {
   padding: 0;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: "Arial", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -70,15 +70,15 @@ header {
   h1 {
     display: flex;
     align-items: center;
-
-    & > span {
-      margin-left: 0.5rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.75em;
-      background-color: var(--color-bg-secondary);
-    }
   }
+}
+
+.path {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75em;
+  background-color: var(--color-bg-secondary);
 }
 
 main {
