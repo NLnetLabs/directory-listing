@@ -1,3 +1,5 @@
+import styles from './styles.css?raw'
+
 /**
  * Generate index.html file content with the given options.
  *
@@ -17,7 +19,7 @@ export default function generate(path, list, opts) {
   <meta name="robots" content="nofollow,noarchive,noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>${projectName} nightly builds</title>
-  <link href="https://nlnetlabs.nl/theme/css/custom.css" rel="stylesheet">
+  <style>${'\n' + styles}</style>
 </head>
 <body>
 <header>
@@ -43,7 +45,7 @@ export default function generate(path, list, opts) {
   </defs>
 </svg>
 <main>
-  <span>${indexOf}</span>
+  <span class="path">${indexOf}</span>
   <table>
     <thead>
       <tr>
