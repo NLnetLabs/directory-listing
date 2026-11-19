@@ -45,7 +45,6 @@ export default function generate(path, list, opts) {
   </defs>
 </svg>
 <main>
-  <span class="path">${indexOf}</span>
   <table>
     <thead>
       <tr>
