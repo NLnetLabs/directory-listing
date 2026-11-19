@@ -81,7 +81,7 @@ export default function generate(path, list, opts) {
             <a href="./${item.path}">${item.path}</a>
           </td>
           <td class="size" title="${item.size}">${humanizeBytes(item.size)}</td>
-          <td class="mod-date">${item.modifiedAt.toLocaleString()}</td>
+          <td class="mod-date">${formatDate(item.modifiedAt)}</td>
         </tr>`
         )
         .join('\n')}
@@ -109,4 +109,19 @@ function humanizeBytes(n) {
   const i = Math.floor(Math.log(n) / Math.log(1024))
 
   return parseFloat((n / Math.pow(1024, i)).toFixed(2)) + ' ' + sizes[i]
+}
+
+/**
+ * Convert a Date into yyyy-mm-dd HH:mm:ss
+ * 
+ * @param {Date} date 
+ * @returns {String}
+ */
+function formatDate(date) {
+  return date.getUTCFullYear().toString().padStart(4, "0") + "-" + 
+    date.getUTCMonth().toString().padStart(2, "0") + "-" +
+    date.getUTCDay().toString().padStart(2, "0") + " " + 
+    date.getUTCHours().toString().padStart(2, "0") + ":" +
+    date.getUTCMinutes().toString().padStart(2, "0") + ":" +
+    date.getUTCSeconds().toString().padStart(2, "0");
 }
