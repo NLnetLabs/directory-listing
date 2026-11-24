@@ -57,7 +57,7 @@ const input = {
                 case !aIsDir && bIsDir:
                   return 1 // files after directories
                 default:
-                  b.localeCompare(a, undefined, {numeric: true, sensitivity: 'base'}) // alphabetical order
+                  a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}) // alphabetical order
               }
             })
             .map(async (path) => {
@@ -89,7 +89,8 @@ const input = {
       const path = join(dir, 'index.html')
 
       if (input.overwrite || !existsSync(path)) {
-        writeFileSync(path, generate(dir, files, {footerContent: input.footer, projectName: input.project}), { flush: true })
+        let sortedFiles = files.sort((a, b) => a.path.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}));
+        writeFileSync(path, generate(dir, sortedFiles, {footerContent: input.footer, projectName: input.project}), { flush: true })
         generated.push(path)
       } else {
         skipped.push(path)
