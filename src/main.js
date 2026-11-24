@@ -57,7 +57,7 @@ const input = {
                 case !aIsDir && bIsDir:
                   return 1 // files after directories
                 default:
-                  a.localeCompare(b) // alphabetical order
+                  b.localeCompare(a, undefined, {numeric: true, sensitivity: 'base'}) // alphabetical order
               }
             })
             .map(async (path) => {
