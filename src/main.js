@@ -89,8 +89,15 @@ const input = {
       const path = join(dir, 'index.html')
 
       if (input.overwrite || !existsSync(path)) {
-        // let sortedFiles = files.toSorted((a, b) => a.path.localeCompare(b.path, undefined, {numeric: true, sensitivity: 'base'}));
-        writeFileSync(path, generate(dir, files, {footerContent: input.footer, projectName: input.project}), { flush: true })
+        let sortedFiles = files.toSorted((a, b) => {
+          if (a.isDirectory && !b.isDirectory) {
+            return -1;
+          } else if (!a.isDirectory && b.isDirectory) {
+            return 1;
+          }
+          return a.path.localeCompare(b.path, undefined, {numeric: true, sensitivity: 'base'});
+        });
+        writeFileSync(path, generate(dir, sortedFiles, {footerContent: input.footer, projectName: input.project}), { flush: true })
         generated.push(path)
       } else {
         skipped.push(path)
